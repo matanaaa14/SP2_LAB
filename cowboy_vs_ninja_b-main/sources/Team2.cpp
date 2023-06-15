@@ -5,7 +5,7 @@ namespace ariel{}
     void Team2::print(){
       for(unsigned long i = 0; i < this->arr.size(); i++){
         if(this->arr[i] != nullptr ){
-            this->arr[i]->print();
+            cout << this->arr[i]->print() <<endl;
           }
         }
     }

@@ -29,12 +29,12 @@ int main() {
    Cowboy* c5 = new Cowboy("cowboy5",b);
    Cowboy* c6 = new Cowboy("cowboy6",c);
 
-   Ninja* n1 = new Ninja("ninja1",a);
-   Ninja* n2 = new Ninja("ninja2",b);
-   Ninja* n3 = new Ninja("ninja3",c);
-   Ninja* n4 = new Ninja("ninja4",a);
-   Ninja* n5 = new Ninja("ninja5",b);
-   Ninja* n6 = new Ninja("ninja6",c);
+   OldNinja* n1 = new OldNinja("ninja1",a);
+   YoungNinja* n2 = new YoungNinja("ninja2",b);
+   TrainedNinja* n3 = new TrainedNinja("ninja3",c);
+   OldNinja* n4 = new OldNinja("ninja4",a);
+   YoungNinja* n5 = new YoungNinja("ninja5",b);
+   TrainedNinja* n6 = new TrainedNinja("ninja6",c);
 
    smartTeam smartT(n4);
    Team2 team2(c1);

@@ -31,7 +31,7 @@ namespace ariel{}
     string Cowboy::print() const{
       if(!this->isAlive())
         return "C ("+this->name_+")" +"("+to_string(this->loaction_.x)+", "+to_string(this->loaction_.y)+")" ;
-      return "C "+this->name_+ to_string(this->life)+"("+to_string(this->loaction_.x)+", "+to_string(this->loaction_.y)+")" ;}
+      return "C "+this->name_+" "+ to_string(this->life)+" ("+to_string(this->loaction_.x)+", "+to_string(this->loaction_.y)+")" ;}
 
     Cowboy::Cowboy(string name, Point point) : Character(name,point){
       this->numOfBullets = 6;
