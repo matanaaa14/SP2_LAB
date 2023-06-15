@@ -1,0 +1,8 @@
+          if(Ninja* ninja = dynamic_cast<Ninja*>(this->arr[index2]) ){
+            if(ninja->distance(enemy->arr[j]) <= 1){
+              ninja->slash(enemy->arr[j]);
+            }
+            else{
+              ninja->move(enemy->arr[j]);
+            }
+          }

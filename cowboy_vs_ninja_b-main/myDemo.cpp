@@ -13,41 +13,52 @@
 using namespace std;
 
 #include "sources/Team.hpp" //no need for other includes
-
+#include "sources/Team2.hpp"
+#include "sources/smartTeam.hpp"
 using namespace ariel;
 
 
 int main() {
-    Point a(32.3,44),b(1.3,3.5);
-    assert(a.distance(b) == b.distance(a));
-    Cowboy *tom = new Cowboy("Tom", a);
-    OldNinja *sushi = new OldNinja("sushi", b);
-    tom->shoot(sushi);
-    cout << tom->print() <<endl;
+   Point a(0,0);
+   Point b(100,100);
+   Point c(20,30);
+   Cowboy* c1= new Cowboy("cowboy1",a);
+   Cowboy* c2 = new Cowboy("cowboy2",b);
+   Cowboy* c3 = new Cowboy("cowboy3",c);
+   Cowboy* c4 = new Cowboy("cowboy4",a);
+   Cowboy* c5 = new Cowboy("cowboy5",b);
+   Cowboy* c6 = new Cowboy("cowboy6",c);
 
-    sushi->move(tom);
-    sushi->slash(tom);
+   Ninja* n1 = new Ninja("ninja1",a);
+   Ninja* n2 = new Ninja("ninja2",b);
+   Ninja* n3 = new Ninja("ninja3",c);
+   Ninja* n4 = new Ninja("ninja4",a);
+   Ninja* n5 = new Ninja("ninja5",b);
+   Ninja* n6 = new Ninja("ninja6",c);
 
-    Team team_A(tom); 
+   smartTeam smartT(n4);
+   Team2 team2(c1);
+   smartT.add(n5);
+   smartT.add(n6);
+   smartT.add(c4);
+   smartT.add(c5);
+   smartT.add(c6);
+   team2.add(c2);   
+   team2.add(c3);   
+   team2.add(n1);   
+   team2.add(n2);   
+   team2.add(n3);   
+   cout << "smartT num of live members: " << smartT.stillAlive() << endl;
+   cout << "team2 num of live members: " << team2.stillAlive() << endl;
+     while(smartT.stillAlive() > 0 && team2.stillAlive() > 0){
 
-    team_A.add(new YoungNinja("Yogi", Point(64,57)));
-    // Team b(tom); should throw tom is already in team a
-     Team team_B(sushi);
-     team_B.add(new TrainedNinja("Hikari", Point(12,81)));
-
-    cout << "num of live members: " << team_A.stillAlive() << endl;
-    
-     while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
-
-        team_A.attack(&team_B);
-        team_B.attack(&team_A);
-        team_A.print();
-        team_B.print();
+        smartT.attack(&team2);
+        team2.attack(&smartT);
+        smartT.print();
+        team2.print();
      }
-    
-     if (team_A.stillAlive() > 0) cout << "winner is team_A" << endl;
-     else cout << "winner is team_B" << endl;
-
+     if (smartT.stillAlive() > 0) cout << "winner is smartT" << endl;
+     else cout << "winner is team2" << endl;
 
     cout << "end" << endl;
 

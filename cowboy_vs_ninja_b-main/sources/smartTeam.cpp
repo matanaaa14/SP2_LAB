@@ -28,7 +28,7 @@ namespace ariel{}
         return;
       }
 
-      
+      //make sure that all the fighters in the attacing team attack
       while( index2 < this->arr.size()){
 
         if(!enemy->arr[j]->isAlive()){
@@ -36,6 +36,27 @@ namespace ariel{}
           if(j == 11)
             return;
         }
+        //first all the cowboys attack
+        if(this->arr[index2] != nullptr && this->arr[index2]->isAlive()){
+          if(Ninja* ninja = dynamic_cast<Ninja*>(this->arr[index2]) ){
+            if(ninja->distance(enemy->arr[j]) <= 1){
+              ninja->slash(enemy->arr[j]);
+            }
+            else{
+              ninja->move(enemy->arr[j]);
+            }
+          }
+        }
+        index2++;
+      }
+      index2 = 0;
+      while( index2 < this->arr.size()){
+        if(!enemy->arr[j]->isAlive()){
+          j = this->whoToAttack(enemy);
+          if(j == 11)
+            return;
+        }
+        //secound the ninjas attack
         if(this->arr[index2] != nullptr && this->arr[index2]->isAlive()){
           if(Cowboy* cowboy = dynamic_cast<Cowboy*>(this->arr[index2]) ){
             if(cowboy->hasboolets()){
@@ -43,14 +64,6 @@ namespace ariel{}
             }
             else{
               cowboy->reload();
-            }
-          }
-          else if(Ninja* ninja = dynamic_cast<Ninja*>(this->arr[index2]) ){
-            if(ninja->distance(enemy->arr[j]) <= 1){
-              ninja->slash(enemy->arr[j]);
-            }
-            else{
-              ninja->move(enemy->arr[j]);
             }
           }
         }
