@@ -21,7 +21,7 @@ int main() {
     MagicalContainer::AscendingIterator ascIter(container);
     std::cout << "Size of container: " << container.size() << std::endl;
     for (auto it = ascIter.begin(); it != ascIter.end(); ++it) {
-        std::cout << *it << ' ';   // 2 3 9 17 25
+        std::cout << *it << ' ';   
     }
     std::cout << std::endl;
 
@@ -33,7 +33,7 @@ int main() {
     MagicalContainer::SideCrossIterator crossIter(container);
 
     for (auto it = crossIter.begin(); it != crossIter.end(); ++it) {
-        std::cout << *it << ' ';  // 2 25 3 17 9
+        std::cout << *it << ' ';  
     }
     std::cout << std::endl;
 
@@ -45,7 +45,7 @@ int main() {
     container.addElement(23);
     container.addElement(33);
     for (auto it = primeIter.begin(); it != primeIter.end(); ++it) {
-        std::cout << *it << ' ';  // 2 3 17 
+        std::cout << *it << ' '; 
     }
     std::cout << std::endl;
 
